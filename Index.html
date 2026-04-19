@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - Aquinas College</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="login-screen">
+        <div class="login-card">
+            <div class="logo-area">
+                <div class="crest-placeholder">AQ</div>
+                <h1>Aquinas College</h1>
+                <p>Student Portal</p>
+            </div>
+
+            <div class="form-area">
+                <label for="username">Username or Email</label>
+                <input type="text" id="username" placeholder="eg: 12345@aquinas.wa.edu.au">
+                
+                <label for="passwordField">Password</label>
+                <input type="password" id="passwordField">
+
+                <div class="options">
+                    <label><input type="checkbox"> Keep me signed in</label>
+                </div>
+
+                <button onclick="verify()">Sign In</button>
+                <p id="error-msg">The password you entered is incorrect.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="content-container" style="display: none;">
+        <iframe 
+            src="https://docs.google.com/forms/d/e/1FAIpQLSeU9vNKOia6IT12Qc0b3NBV6wSF9o7Im-BxM63ai3zgaXKsyA/viewform?embedded=true" 
+            width="100%" 
+            height="100%" 
+            frameborder="0">
+            Loading…
+        </iframe>
+    </div>
+
+    <script>
+        function verify() {
+            const userPass = document.getElementById('passwordField').value;
+            // The password is set to 'redandblack'
+            if (userPass === "redandblack") {
+                document.getElementById('login-screen').style.display = 'none';
+                document.getElementById('content-container').style.display = 'block';
+            } else {
+                document.getElementById('error-msg').style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
